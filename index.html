@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高齡運動健康簡報庫</title>
+<!-- 首頁：列出 slides/ 中的所有簡報。新增簡報時，依 AGENTS.md §7.4 節點 3，在「簡報卡片」標記下方加一張卡片（最新的放最上面）。單一檔案、無外部依賴，配色依 §7.5.2。 -->
+<style>
+:root{--bg:#F7F3EC;--card:#EDE6DA;--green:#2F4F3E;--text:#2B2B2B;--orange:#A85A24;--orange-deco:#C8743A;
+  --sage:#A3B5A0;--rose:#D9B8A8;--blue:#9AAAB5;--muted:#5E5A54}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",system-ui,sans-serif;background:var(--bg);
+  color:var(--text);line-height:1.6;font-size:20px}
+header{background:var(--green);color:var(--bg);padding:56px 6vw 44px}
+header h1{font-size:clamp(32px,4vw,48px);line-height:1.25}
+header p{opacity:.9;margin-top:8px;font-size:20px}
+header .bar{width:96px;height:8px;border-radius:4px;background:var(--orange-deco);margin:16px 0 12px}
+main{padding:40px 6vw 56px;max-width:1280px;margin:0 auto}
+h2{color:var(--green);font-size:28px;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+.card{background:var(--card);border-radius:18px;padding:24px 26px;border-left:8px solid var(--orange-deco);
+  display:flex;flex-direction:column;gap:10px}
+.card h3{color:var(--green);font-size:24px;line-height:1.35}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{background:var(--rose);color:var(--text);border-radius:999px;padding:2px 12px;font-size:16px}
+.tag.style{background:var(--sage)}
+.meta{color:var(--muted);font-size:16px}
+.card p{font-size:18px}
+.btn{align-self:flex-start;margin-top:6px;background:var(--green);color:var(--bg);text-decoration:none;font-weight:700;
+  border-radius:999px;padding:8px 22px;font-size:18px}
+.btn:hover{filter:brightness(1.15)}
+.btn:focus-visible{outline:4px solid var(--orange-deco);outline-offset:3px}
+footer{color:var(--muted);font-size:16px;padding:0 6vw 40px;max-width:1280px;margin:0 auto}
+footer a{color:var(--green)}
+</style>
+</head>
+<body>
+<header>
+  <h1>高齡運動健康簡報庫</h1>
+  <div class="bar"></div>
+  <p>預防肌少症與失智症｜所有內容皆取自本知識庫 wiki/，經三輪自我審查後發布</p>
+</header>
+<main>
+  <h2>簡報清單</h2>
+  <div class="grid">
+    <!-- 簡報卡片：新卡片加在此行下方 -->
+    <article class="card">
+      <h3>預防肌少症與失智症的高齡整合運動處方</h3>
+      <div class="tags"><span class="tag style">教學</span><span class="tag">肌少症</span><span class="tag">失智症與認知</span><span class="tag">運動處方</span></div>
+      <p>從肌肉與大腦的關聯出發，依「站起來 → 站得穩 → 走得遠」開立阻力、爆發力、平衡＋雙重任務、有氧的整合處方。</p>
+      <div class="meta">16 頁｜對象：運動指導員、物理治療相關人員｜2026-11-24</div>
+      <a class="btn" href="slides/預防肌少症與失智症的高齡整合運動處方.html">開啟簡報 ▶</a>
+    </article>
+  </div>
+</main>
+<footer>
+  知識庫總索引：<a href="wiki/index.md">wiki/index.md</a>｜工作規則：<a href="AGENTS.md">AGENTS.md</a>｜操作方式：簡報內用 ← → 或下方按鈕翻頁，按 N 顯示講稿，F 全螢幕。
+</footer>
+</body>
+</html>

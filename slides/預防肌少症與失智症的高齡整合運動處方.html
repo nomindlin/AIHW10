@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>預防肌少症與失智症的高齡整合運動處方</title>
+<!--
+  簡報：預防肌少症與失智症的高齡整合運動處方（教學樣式）。由 slides/draft.md v4 生成，審查紀錄見 slides/review_log.md。按 N 顯示講稿。
+  原模板說明：HTML 簡報模板（教學樣式），規範見 AGENTS.md §7.5。
+  - 單一檔案、無外部依賴；← → 或下方按鈕翻頁，右上角顯示頁碼，F 全螢幕，可列印成 A4 橫式講義。
+  - 每個 <section class="slide"> 是一頁；封面或章節頁加 class="cover"。
+  - 內容必須 100% 取自 wiki/，有數據的頁面底部用 <p class="src"> 標來源頁（AGENTS.md §7.5.5）。
+  - 方括號【】內是待替換的佔位文字。
+-->
+<style>:root{--fs-h1:clamp(48px,5vw,68px);--fs-h2:clamp(40px,3.8vw,52px);--fs-body:clamp(26px,2.4vw,34px);--fs-src:clamp(14px,1.1vw,18px);--fs-ui:clamp(16px,1.3vw,22px);}
+:root{
+  --bg:#F7F3EC;--card:#EDE6DA;--green:#2F4F3E;--text:#2B2B2B;
+  --orange:#A85A24;--orange-deco:#C8743A;--sage:#A3B5A0;--rose:#D9B8A8;
+  --blue:#9AAAB5;--muted:#5E5A54;--alert:#9E3B2A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",system-ui,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.55;font-variant-numeric:tabular-nums}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
+  padding:7vh 6vw 13vh;font-size:var(--fs-body)}
+.slide.active{display:flex}
+h1{font-size:var(--fs-h1);color:var(--green);line-height:1.25;margin-bottom:.35em}
+h2{font-size:var(--fs-h2);color:var(--green);line-height:1.25;margin-bottom:.55em;
+  display:flex;align-items:center;gap:.4em}
+h3{font-size:1.05em;color:var(--green);margin-bottom:.3em}
+strong,.hl{color:var(--orange);font-weight:800}
+ul{list-style:none}
+li{position:relative;padding-left:1.25em;margin:.4em 0}
+li::before{content:"";position:absolute;left:0;top:.55em;width:.5em;height:.5em;border-radius:50%;background:var(--orange-deco)}
+ol.steps{list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;padding-left:1.9em}
+ol.steps li::before{content:counter(s);width:1.35em;height:1.35em;top:.1em;background:var(--green);color:var(--bg);
+  font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center}
+/* 圖文講義元件 */
+.card{background:var(--card);border-radius:18px;padding:.8em 1.1em;border-left:8px solid var(--orange-deco)}
+.card.green{border-left-color:var(--green)}
+.card.alert{background:#F3E4DF;border-left-color:var(--alert)}
+.card.alert h2,.card.alert h3{color:var(--alert)}
+.figtext{display:grid;grid-template-columns:auto 1fr;gap:1.2em;align-items:center}
+.icon{width:1.7em;height:1.7em;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  font-size:1em;line-height:1;background:var(--sage);flex-shrink:0}
+h2 .icon{font-size:.8em}
+.icon.rose{background:var(--rose)}.icon.blue{background:var(--blue)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.2em}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1em}
+.big{font-size:1.6em;font-weight:800;color:var(--orange);line-height:1.2}
+.tag{display:inline-block;background:var(--rose);color:var(--text);border-radius:999px;padding:.05em .6em;font-size:.7em;vertical-align:middle}
+table{border-collapse:collapse;width:100%;font-size:1em;background:var(--bg)}
+th,td{border:1px solid #D6CCBC;padding:.35em .6em;text-align:left;vertical-align:top}
+th{background:var(--card);color:var(--green)}
+.src{position:absolute;left:6vw;right:6vw;bottom:9vh;font-size:var(--fs-src);color:var(--muted)}
+/* 封面與章節頁 */
+.cover{background:var(--green);color:var(--bg)}
+.cover h1,.cover h2,.cover p{color:var(--bg)}
+.cover .sub{opacity:.9;font-size:.85em}
+.cover .bar{width:5em;height:8px;border-radius:4px;background:var(--orange-deco);margin:.6em 0 .9em}
+/* 介面：進度條、右上頁碼、下方按鈕 */
+#bar{position:fixed;left:0;top:0;height:6px;background:var(--orange-deco);transition:width .25s;z-index:20}
+#counter{position:fixed;top:2.2vh;right:2vw;z-index:20;background:var(--green);color:var(--bg);
+  font-size:var(--fs-ui);font-weight:700;padding:.15em .7em;border-radius:999px;letter-spacing:.03em}
+.cover-active #counter{background:var(--bg);color:var(--green)}
+.nav{position:fixed;left:50%;bottom:2.2vh;transform:translateX(-50%);display:flex;gap:1em;z-index:20}
+.nav button{font:inherit;font-size:var(--fs-ui);font-weight:700;color:var(--bg);background:var(--green);
+  border:none;border-radius:999px;padding:.35em 1.2em;cursor:pointer;min-width:6.5em}
+.nav button:hover{filter:brightness(1.15)}
+.nav button:focus-visible{outline:4px solid var(--orange-deco);outline-offset:3px}
+.nav button:disabled{background:#B9B2A6;color:#F7F3EC;cursor:default;filter:none}
+.cover-active .nav button:not(:disabled){background:var(--bg);color:var(--green)}
+@media print{
+  @page{size:A4 landscape;margin:0}
+  html,body{overflow:visible;height:auto;background:var(--bg)}
+  .slide{position:relative;display:flex;width:297mm;height:210mm;page-break-after:always;break-after:page;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .nav,#bar{display:none}
+  #counter{display:none}
+}
+
+.notes{display:none}
+body.show-notes .notes{display:block;position:absolute;left:6vw;right:6vw;bottom:13vh;background:#FFFFFF;border:2px dashed var(--sage);
+  border-radius:12px;padding:.5em .9em;font-size:var(--fs-src);color:var(--text);line-height:1.6}
+@media print{.notes{display:none!important}}
+</style>
+</head>
+<body>
+<div id="bar" aria-hidden="true"></div>
+<div id="counter" aria-live="polite"></div>
+<nav class="nav" aria-label="翻頁"><button id="prev" type="button">◀ 上一頁</button><button id="next" type="button">下一頁 ▶</button></nav>
+
+<section class="slide cover">
+  <div style="font-size:2em">🌿🧠</div>
+  <h1>預防肌少症與失智症的<br>高齡整合運動處方</h1>
+  <div class="bar"></div>
+  <p class="sub">一份處方，同時顧肌肉與大腦</p>
+  <p class="sub">【講師】｜對象：運動指導員、物理治療相關人員｜【時數】</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon">🎯</span>學習目標</h2>
+  <div class="card green">
+    <ol class="steps">
+      <li>說明肌肉與大腦為什麼要一起顧</li>
+      <li>依 FITT-VP 開立整合運動處方</li>
+      <li>辨識篩檢重點與安全警訊</li>
+    </ol>
+  </div>
+  <aside class="notes">講稿：今天的目標是把肌少症和認知保健放在同一張處方裡，而不是分開開兩張。</aside>
+</section>
+
+<section class="slide">
+  <h2><span class="icon rose">🔗</span>為什麼要「整合」？</h2>
+  <div class="grid3">
+    <div class="card"><div style="font-size:1.6em">💪</div>肌少症合併衰弱：與失能、<strong>認知退化</strong>、死亡有關</div>
+    <div class="card"><div style="font-size:1.6em">🧠</div>運動可能經由 BDNF、腦血流、降低發炎，<strong>延緩認知退化</strong></div>
+    <div class="card green"><div style="font-size:1.6em">🏃</div>VIVIFRAIL：改善<strong>行動與認知</strong>等內在能力</div>
+  </div>
+  <aside class="notes">講稿：肌少症合併衰弱時，與認知退化有關。運動影響大腦的機制目前仍屬「可能機制」，這點要誠實說明。</aside>
+  <p class="src">來源（wiki）：肌少症、腦源性神經營養因子BDNF、高齡多元運動訓練</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon blue">🔍</span>肌少症是什麼？</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>定義</h3>
+      <p>肌肉量、肌力、功能進行性流失</p>
+      <h3 style="margin-top:.6em">GLIS 三要素</h3>
+      <p>肌肉量｜肌力｜<strong>肌肉特定肌力</strong><br><span style="color:var(--muted)">（肌力 ÷ 肌肉量）</span></p>
+    </div>
+    <div class="card green figtext" style="grid-template-columns:1fr">
+      <h3>握力切點（AWGS 2019）</h3>
+      <div><span class="big">男 &lt; 28 kg</span></div>
+      <div><span class="big">女 &lt; 18 kg</span></div>
+    </div>
+  </div>
+  <aside class="notes">講稿：全球肌少症領導倡議（GLIS）把「肌肉特定肌力」列為第三個要素，也就是看肌肉的品質。握力切點來自 AWGS 2019，這裡是經由 Wu 2025 研究引用。</aside>
+  <p class="src">來源（wiki）：肌少症、肌肉特定肌力</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon">⚡</span>爆發力：比肌力更早掉</h2>
+  <div class="card">
+    <ul><li>第二型快縮肌纖維流失＋神經招募下降</li><li>爆發力下降得比肌力<strong>更早、更陡</strong></li><li>爆發力與功能測驗表現高度相關</li></ul>
+  </div>
+  <aside class="notes">講稿：肌力是能搬多重，爆發力是能多快出力。過馬路、差點跌倒時要靠的是爆發力，所以處方裡一定要有「快」的元素。</aside>
+  <p class="src">來源（wiki）：肌肉爆發力</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon rose">🔥</span>運動降低慢性發炎</h2>
+  <div class="grid2">
+    <div class="card"><ul><li>運動可降低 CRP、IL-6、TNF-α（統合分析）</li><li>有氧＋肌力的多元訓練，看起來效果最好</li></ul></div>
+    <div class="card green">
+      <h3>參考劑量</h3>
+      <p><span class="big">3–5</span> 次／週</p>
+      <p>每次 <strong>≥ 25 分</strong>，持續 <strong>≥ 12 週</strong></p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:.8em">🧠 發炎下降，也可能與認知有關</div>
+  <aside class="notes">講稿：在肌肉端，阻力訓練另外經由 mTOR 路徑促進肌肉蛋白質合成。發炎和認知的關聯目前屬於可能機制。</aside>
+  <p class="src">來源（wiki）：發炎性細胞激素IL-6與TNF-α、肌肉蛋白質合成MPS</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon blue">📚</span>對認知的證據</h2>
+  <div class="grid2">
+    <div class="card green">
+      <h3>SMART 研究</h3>
+      <ul><li>輕度認知障礙者阻力訓練 6 個月改善認知</li><li>效果持續 <strong>&gt; 18 個月</strong></li><li>下肢肌力中介 <strong>64%</strong> 執行功能改善</li></ul>
+    </div>
+    <div class="card">
+      <h3>其他證據</h3>
+      <ul><li>太極：改善注意力與處理速度</li><li>單獨運動證據不一致</li><li>多領域介入效果小但顯著</li></ul>
+    </div>
+  </div>
+  <aside class="notes">講稿：SMART 研究的對象是輕度認知障礙者，改善的是整體認知。長期單獨運動對認知的效果，統合分析結果不一致，可能有小效益；含運動的多領域介入（如 FINGER）有小但顯著的效果。</aside>
+  <p class="src">來源（wiki）：雙重任務訓練</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon">🧩</span>整合處方總覽：多元運動</h2>
+  <div class="grid3">
+    <div class="card green"><div style="font-size:1.6em">🪑</div><h3>① 站起來</h3>肌力與爆發力</div>
+    <div class="card green"><div style="font-size:1.6em">🧍</div><h3>② 站得穩</h3>平衡</div>
+    <div class="card green"><div style="font-size:1.6em">🚶</div><h3>③ 走得遠</h3>耐力</div>
+  </div>
+  <div class="card" style="margin-top:.8em">
+    <ul><li>成分：阻力、爆發力、平衡、步態、有氧</li><li>頻率：從每週 2 次進階到 3 次</li></ul>
+  </div>
+  <aside class="notes">講稿：不能從椅子站起來的人，直接叫他去走路，很可能失敗，還會增加跌倒風險。</aside>
+  <p class="src">來源（wiki）：高齡多元運動訓練</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon blue">🏋️</span>處方 ①：阻力訓練</h2>
+  <table>
+    <tr><th style="width:22%">參數</th><th>建議</th></tr>
+    <tr><td>頻率</td><td>每週 2–3 次，同肌群至少隔 1 天</td></tr>
+    <tr><td>強度</td><td><strong>50% → 70–80% 1RM</strong>（Borg 15–18），2–3 週內進階</td></tr>
+    <tr><td>總量</td><td>1–3 組 × 8–12 下</td></tr>
+    <tr><td>漸進</td><td>每 2–4 週重測 1RM</td></tr>
+  </table>
+  <aside class="notes">講稿：衰弱不是延後高強度訓練的理由。只用最初的 1RM 不重測，相對強度會越練越低。</aside>
+  <p class="src">來源（wiki）：高齡阻力訓練、衰弱</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon">🚀</span>處方 ②：爆發力訓練</h2>
+  <table>
+    <tr><th style="width:22%">參數</th><th>建議</th></tr>
+    <tr><td>強度</td><td><strong>60–80% 1RM</strong></td></tr>
+    <tr><td>速度</td><td>向心快、離心控制</td></tr>
+    <tr><td>教學期</td><td>前約 2 週先低速教正確動作</td></tr>
+    <tr><td>動作</td><td>以下肢為主，腿推舉最好耐受</td></tr>
+  </table>
+  <aside class="notes">講稿：注意 2021 年版建議的是 40–60% 1RM，2025 年版提高到 60–80%。每組不要做到力竭。</aside>
+  <p class="src">來源（wiki）：高齡爆發力訓練、ICFSR2021與2025運動建議之比較</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon rose">⚖️</span>處方 ③：平衡、步態＋雙重任務</h2>
+  <div class="card">
+    <h3>平衡漸進</h3>
+    <p>扶著 → 不扶 → 閉眼 → 減少本體感覺 → <strong>加入雙重任務</strong></p>
+  </div>
+  <div class="grid2" style="margin-top:.8em">
+    <div class="card"><h3>步態</h3>改變速度、方向、地面，再加軟墊或雙重任務</div>
+    <div class="card green"><h3>🧠 雙重任務</h3>如邊走邊說動物名稱，<strong>可能</strong>有益認知</div>
+  </div>
+  <aside class="notes">講稿：在指引的漸進順序中，雙重任務放在平衡和步態訓練的最後一階。目前知識庫沒有雙重任務的最佳劑量，只能說「可能有益」。</aside>
+  <p class="src">來源（wiki）：高齡多元運動訓練、雙重任務訓練</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon blue">🚴</span>處方 ④：有氧與排程</h2>
+  <div class="grid3">
+    <div class="card"><h3>有氧</h3>從 <strong>5–10 分</strong> 進階到 <strong>15–30 分</strong></div>
+    <div class="card"><h3>同一次課程</h3>先阻力、後有氧</div>
+    <div class="card green"><h3>衰弱者</h3>阻力和有氧最好分在不同天</div>
+  </div>
+  <aside class="notes">講稿：有氧排在阻力之前，可能削弱阻力訓練效果。實務折衷是每週 2 次有督導的阻力訓練，其他天在社區走路。</aside>
+  <p class="src">來源（wiki）：高齡多元運動訓練、肌肉蛋白質合成MPS</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon rose">🤝</span>帶領認知障礙長者</h2>
+  <div class="grid2">
+    <div class="card green"><ul><li>用示範代替複雜口語，態度尊重、同理</li><li>VIVIFRAIL 改善內在能力，優於常規照護</li></ul></div>
+    <div class="card">
+      <ul><li>可考慮低負荷（30–50% 1RM）高速阻力訓練</li></ul>
+      <p style="color:var(--muted);margin-top:.4em">註：此為認知障礙族群建議，強度仍待直接比較</p>
+    </div>
+  </div>
+  <aside class="notes">講稿：ICFSR 2025 指出，針對認知障礙者，低負荷高速阻力訓練可能是改善身體與認知功能的基石，但不同強度還需要直接比較。</aside>
+  <p class="src">來源（wiki）：高齡多元運動訓練、ICFSR2021與2025運動建議之比較</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon">🛡️</span>安全篩檢與營養搭配</h2>
+  <div class="grid2">
+    <div class="card"><ul><li>篩檢：肌腱病變、退化性關節炎、疝氣、旋轉肌袖撕裂</li><li>執行：不要憋氣、不要甩動借力</li><li>營養不足時，阻力訓練加乳清蛋白</li></ul></div>
+    <div class="card alert"><h3>⚠️ 立即停止</h3>胸痛、嚴重喘、頭暈、心悸、關節劇痛</div>
+  </div>
+  <aside class="notes">講稿：服用 β 阻斷劑者改用自覺費力程度監測強度。爆發力訓練的主要風險是肌腱、軟骨受傷和疝氣惡化，整體風險低，與傳統阻力訓練相近。</aside>
+  <p class="src">來源（wiki）：高齡阻力訓練、高齡爆發力訓練、肌肉蛋白質合成MPS</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon rose">⚖️</span>常見錯誤</h2>
+  <table>
+    <tr><th>❌ 錯誤</th><th>✅ 正確</th></tr>
+    <tr><td>只用最初的 1RM</td><td>每 2–4 週重測</td></tr>
+    <tr><td>甩動借力加速</td><td>向心快但受控</td></tr>
+    <tr><td>負荷過低、只在家做</td><td>漸進到 70–80% 1RM</td></tr>
+    <tr><td>先有氧再阻力</td><td>先阻力、後有氧</td></tr>
+  </table>
+  <p class="src">來源（wiki）：高齡阻力訓練、高齡爆發力訓練、衰弱、高齡多元運動訓練</p>
+</section>
+
+<section class="slide">
+  <h2><span class="icon blue">📝</span>課後小測驗與參考文獻</h2>
+  <div class="grid2">
+    <div class="card green">
+      <ol class="steps">
+        <li>爆發力訓練建議強度？<br><span style="color:var(--muted)">答：60–80% 1RM</span></li>
+        <li>衰弱者的處方順序？<br><span style="color:var(--muted)">答：站起來→站得穩→走得遠</span></li>
+        <li>討論：輕度認知障礙長者如何加入雙重任務？</li>
+      </ol>
+    </div>
+    <div class="card" style="font-size:.55em;line-height:1.5">
+      <h3>參考文獻</h3>
+      <p>1. Izquierdo M, et al. Global consensus on optimal exercise recommendations for enhancing healthy longevity in older adults (ICFSR). J Nutr Health Aging. 2025;29:100401. doi:10.1016/j.jnha.2024.100401</p>
+      <p>2. Izquierdo M, et al. International Exercise Recommendations in Older Adults (ICFSR): Expert Consensus Guidelines. J Nutr Health Aging. 2021;25(7):824-853. doi:10.1007/s12603-021-1665-8</p>
+      <p>3. Wu GF, et al. Sarcopenia defined by the GLIS consensus predicts adverse postoperative outcomes in patients undergoing radical gastrectomy for gastric cancer. BMC Cancer. 2025;25:679. doi:10.1186/s12885-025-13967-7</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var counter=document.getElementById('counter'),bar=document.getElementById('bar');
+  var prev=document.getElementById('prev'),next=document.getElementById('next');
+  var i=0;
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('active',k===i);});
+    counter.textContent=(i+1)+' / '+slides.length;
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    prev.disabled=(i===0); next.disabled=(i===slides.length-1);
+    document.body.classList.toggle('cover-active',slides[i].classList.contains('cover'));
+    try{history.replaceState(null,'','#'+(i+1));}catch(e){}
+  }
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(k==='ArrowRight'||k==='PageDown'||k===' '){e.preventDefault();show(i+1);}
+    else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();show(i-1);}
+    else if(k==='Home'){show(0);} else if(k==='End'){show(slides.length-1);}
+    else if(k==='f'||k==='F'){
+      if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}
+      else{document.exitFullscreen&&document.exitFullscreen();}
+    }
+  });
+  prev.addEventListener('click',function(){show(i-1);});
+  next.addEventListener('click',function(){show(i+1);});
+  var x0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>50)show(i+(dx<0?1:-1));x0=null;});
+  var h=parseInt(location.hash.slice(1),10);
+  show(isNaN(h)?0:h-1);
+})();
+</script>
+
+
+<script>
+document.addEventListener('keydown',function(e){if(e.key==='n'||e.key==='N'){document.body.classList.toggle('show-notes');}});
+</script>
+</body>
+</html>
