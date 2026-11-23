@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>學術報告模板</title>
+<!-- 單檔 HTML 簡報模板：無外部依賴。操作：← → 或空白鍵翻頁、F 全螢幕、Home/End 跳到首頁或末頁、可直接列印。
+     使用方式：複製本檔到 slides/輸出/，每個 <section class="slide"> 是一頁。規則見 AGENTS.md §7.4 -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.5}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 7vw 9vh}
+.slide.active{display:flex}
+h1,h2,h3{line-height:1.25;color:var(--head)}
+ul,ol{padding-left:1.2em}
+li{margin:.35em 0}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid var(--line);padding:.4em .6em;text-align:left;vertical-align:top}
+th{background:var(--soft)}
+.src{position:absolute;left:7vw;bottom:4.5vh;font-size:13px;color:var(--muted)}
+.nav{position:fixed;right:2vw;bottom:2vh;display:flex;gap:.5em;align-items:center;font-size:14px;color:var(--muted);z-index:10}
+.nav button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:6px;padding:.2em .7em;font-size:16px;cursor:pointer}
+#bar{position:fixed;left:0;top:0;height:4px;background:var(--accent);transition:width .2s;z-index:10}
+@media print{
+  html,body{overflow:visible;height:auto}
+  .slide{position:relative;display:flex;page-break-after:always;height:100vh}
+  .nav,#bar{display:none}
+}
+
+:root{--bg:#ffffff;--fg:#1f2933;--head:#0b3d5c;--accent:#1a7f8e;--muted:#6b7785;--line:#d5dde5;--soft:#eef4f7}
+.slide{font-size:clamp(18px,2.3vw,28px)}
+h1{font-size:2.1em;margin-bottom:.4em}
+h2{font-size:1.5em;margin-bottom:.6em;padding-bottom:.25em;border-bottom:3px solid var(--accent)}
+.title-slide{background:linear-gradient(135deg,#0b3d5c,#1a7f8e);color:#fff}
+.title-slide h1,.title-slide p{color:#fff}
+.meta{opacity:.85;margin-top:.6em}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:2.5vw}
+.tag{display:inline-block;background:var(--soft);color:var(--head);border-radius:4px;padding:0 .45em;font-size:.75em;margin-left:.3em}
+.stat{font-variant-numeric:tabular-nums;color:var(--accent);font-weight:700}
+table{font-size:.72em}
+.refs li{font-size:.62em}
+.take{background:var(--soft);border-left:6px solid var(--accent);padding:.6em 1em;margin-top:.8em}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div class="nav"><button id="prev" aria-label="上一頁">‹</button><span id="counter"></span><button id="next" aria-label="下一頁">›</button></div>
+
+<section class="slide title-slide">
+  <h1>報告題目</h1>
+  <p>副標：例如「阻力訓練對高齡者認知功能之影響：近期證據回顧」</p>
+  <p class="meta">報告人｜單位｜Journal Club｜YYYY-MM-DD</p>
+</section>
+
+<section class="slide">
+  <h2>研究背景與問題</h2>
+  <ul>
+    <li>背景重點一（含流行病學數據）</li>
+    <li>背景重點二</li>
+    <li>研究問題：P／I／C／O</li>
+  </ul>
+  <p class="src">來源：[[概念頁]]、[[文獻頁]]</p>
+</section>
+
+<section class="slide">
+  <h2>研究方法 <span class="tag">RCT / Level 1b</span></h2>
+  <div class="cols">
+    <ul>
+      <li>族群：n = ，年齡</li>
+      <li>納入：</li>
+      <li>排除：</li>
+    </ul>
+    <table>
+      <tr><th>FITT-VP</th><th>介入組</th></tr>
+      <tr><td>頻率</td><td>次／週</td></tr>
+      <tr><td>強度</td><td>% 1RM</td></tr>
+      <tr><td>時間</td><td>分鐘</td></tr>
+      <tr><td>總週數</td><td>週</td></tr>
+    </table>
+  </div>
+  <p class="src">來源：[[文獻頁]]</p>
+</section>
+
+<section class="slide">
+  <h2>主要結果</h2>
+  <table>
+    <tr><th>結果指標</th><th>介入組</th><th>對照組</th><th>效果量（95% CI）</th><th>p</th></tr>
+    <tr><td>例：MoCA</td><td></td><td></td><td class="stat">SMD = 0.00 [0.00, 0.00]</td><td></td></tr>
+  </table>
+  <p class="take">一句話結論：</p>
+  <p class="src">來源：[[文獻頁]]</p>
+</section>
+
+<section class="slide">
+  <h2>與其他研究比較</h2>
+  <ul>
+    <li>一致的發現：</li>
+    <li>矛盾的結果與可能原因：</li>
+  </ul>
+  <p class="src">來源：[[比較頁]]</p>
+</section>
+
+<section class="slide">
+  <h2>研究限制與臨床意涵</h2>
+  <div class="cols">
+    <div><h3>限制</h3><ul><li></li></ul></div>
+    <div><h3>臨床／研究意涵</h3><ul><li></li></ul></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>參考文獻</h2>
+  <ol class="refs">
+    <li>Author A, et al. Title. <i>Journal</i>. Year;Vol(Issue):pages. doi:</li>
+  </ol>
+</section>
+
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const counter=document.getElementById('counter');
+  const bar=document.getElementById('bar');
+  let i=0;
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    counter.textContent=(i+1)+' / '+slides.length;
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    history.replaceState(null,'','#'+(i+1));
+  }
+  document.addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(i+1);}
+    else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(i-1);}
+    else if(e.key==='Home')show(0);
+    else if(e.key==='End')show(slides.length-1);
+    else if(e.key==='f'||e.key==='F'){
+      if(!document.fullscreenElement)document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();
+      else document.exitFullscreen&&document.exitFullscreen();
+    }
+  });
+  let x0=null;
+  document.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(i+(dx<0?1:-1));x0=null;});
+  document.getElementById('prev').onclick=()=>show(i-1);
+  document.getElementById('next').onclick=()=>show(i+1);
+  const h=parseInt(location.hash.slice(1),10);
+  show(isNaN(h)?0:h-1);
+})();
+</script>
+
+</body>
+</html>

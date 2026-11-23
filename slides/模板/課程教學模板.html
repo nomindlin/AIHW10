@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>課程教學模板</title>
+<!-- 單檔 HTML 簡報模板：無外部依賴。操作：← → 或空白鍵翻頁、F 全螢幕、Home/End 跳到首頁或末頁、可直接列印。
+     使用方式：複製本檔到 slides/輸出/，每個 <section class="slide"> 是一頁。規則見 AGENTS.md §7.4 -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.5}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 7vw 9vh}
+.slide.active{display:flex}
+h1,h2,h3{line-height:1.25;color:var(--head)}
+ul,ol{padding-left:1.2em}
+li{margin:.35em 0}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid var(--line);padding:.4em .6em;text-align:left;vertical-align:top}
+th{background:var(--soft)}
+.src{position:absolute;left:7vw;bottom:4.5vh;font-size:13px;color:var(--muted)}
+.nav{position:fixed;right:2vw;bottom:2vh;display:flex;gap:.5em;align-items:center;font-size:14px;color:var(--muted);z-index:10}
+.nav button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:6px;padding:.2em .7em;font-size:16px;cursor:pointer}
+#bar{position:fixed;left:0;top:0;height:4px;background:var(--accent);transition:width .2s;z-index:10}
+@media print{
+  html,body{overflow:visible;height:auto}
+  .slide{position:relative;display:flex;page-break-after:always;height:100vh}
+  .nav,#bar{display:none}
+}
+
+:root{--bg:#f7f9fc;--fg:#1b2430;--head:#1d4e89;--accent:#2f9e44;--muted:#677489;--line:#cfd8e3;--soft:#e7f0fb}
+.slide{font-size:clamp(20px,2.5vw,32px)}
+h1{font-size:2em;margin-bottom:.4em}
+h2{font-size:1.45em;margin-bottom:.6em;display:flex;align-items:center;gap:.4em}
+h2 .num{background:var(--head);color:#fff;border-radius:8px;padding:0 .4em;font-size:.8em}
+.title-slide{background:var(--head);color:#fff}
+.title-slide h1,.title-slide p{color:#fff}
+.goals li::marker{content:"🎯 "}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:2.5vw}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:.8em 1em}
+.ok{border-left:8px solid var(--accent)}
+.ng{border-left:8px solid #e03131}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;padding-left:2em;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:.1em;width:1.4em;height:1.4em;border-radius:50%;background:var(--accent);color:#fff;font-size:.8em;display:flex;align-items:center;justify-content:center}
+details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.5em .8em;margin:.4em 0}
+summary{cursor:pointer;font-weight:600}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div class="nav"><button id="prev" aria-label="上一頁">‹</button><span id="counter"></span><button id="next" aria-label="下一頁">›</button></div>
+
+<section class="slide title-slide">
+  <h1>課程單元名稱</h1>
+  <p>例如：「高齡者阻力訓練處方設計」</p>
+  <p style="opacity:.85;margin-top:.6em">講師｜對象：運動指導員／學生｜時數</p>
+</section>
+
+<section class="slide">
+  <h2><span class="num">0</span>學習目標</h2>
+  <ul class="goals">
+    <li>能說明……</li>
+    <li>能依 FITT-VP 設計……</li>
+    <li>能辨識……的禁忌與警訊</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2><span class="num">1</span>核心概念</h2>
+  <ul>
+    <li>概念重點（含英文術語）</li>
+    <li>證據摘要：效果量，證據等級</li>
+  </ul>
+  <p class="src">來源：[[概念頁]]</p>
+</section>
+
+<section class="slide">
+  <h2><span class="num">2</span>處方參數</h2>
+  <table>
+    <tr><th>參數</th><th>建議</th><th>依據</th></tr>
+    <tr><td>頻率</td><td></td><td></td></tr>
+    <tr><td>強度</td><td></td><td></td></tr>
+    <tr><td>時間</td><td></td><td></td></tr>
+    <tr><td>類型</td><td></td><td></td></tr>
+    <tr><td>漸進</td><td></td><td></td></tr>
+  </table>
+  <p class="src">來源：[[處方頁]]</p>
+</section>
+
+<section class="slide">
+  <h2><span class="num">3</span>操作步驟</h2>
+  <ol class="steps">
+    <li>前測評估（例：握力、5 次坐站、SPPB）</li>
+    <li>熱身</li>
+    <li>主運動</li>
+    <li>緩和與紀錄</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2><span class="num">4</span>常見錯誤</h2>
+  <div class="cols">
+    <div class="card ok"><h3>✅ 正確</h3><p></p></div>
+    <div class="card ng"><h3>❌ 錯誤</h3><p></p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2><span class="num">5</span>課後小測驗</h2>
+  <details><summary>Q1. 題目……</summary><p>答案與解析……</p></details>
+  <details><summary>Q2. 題目……</summary><p>答案與解析……</p></details>
+  <details><summary>討論：案例情境……</summary><p>參考思考方向……</p></details>
+</section>
+
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const counter=document.getElementById('counter');
+  const bar=document.getElementById('bar');
+  let i=0;
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    counter.textContent=(i+1)+' / '+slides.length;
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    history.replaceState(null,'','#'+(i+1));
+  }
+  document.addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(i+1);}
+    else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(i-1);}
+    else if(e.key==='Home')show(0);
+    else if(e.key==='End')show(slides.length-1);
+    else if(e.key==='f'||e.key==='F'){
+      if(!document.fullscreenElement)document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();
+      else document.exitFullscreen&&document.exitFullscreen();
+    }
+  });
+  let x0=null;
+  document.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(i+(dx<0?1:-1));x0=null;});
+  document.getElementById('prev').onclick=()=>show(i-1);
+  document.getElementById('next').onclick=()=>show(i+1);
+  const h=parseInt(location.hash.slice(1),10);
+  show(isNaN(h)?0:h-1);
+})();
+</script>
+
+</body>
+</html>
